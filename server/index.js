@@ -119,6 +119,7 @@ app.post('/suggestWines', (req, res) => {
   var movieScoreRound = Math.round(movieScore * 100) / 100;
   var results = [];
   db.retriveWines().then((winesData) => {
+    console.log('Wines Data:' + winesData);
     for(var i =0; i < winesData.length; i++) {
       var wineScore = winesData[i].sentiment.sentiment.document.score;
       var wineScoreRound = Math.round(wineScore * 100) / 100;
