@@ -2,8 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Grid } from 'react-bootstrap';
 import PopulatePairings from './PopulatePairings.jsx';
-//import moviesData from '../data/moviesData.js';
-import winesData from '../data/winesData.js';
+import pairings from '../data/pairings.js';
 import $ from 'jquery';
 
 class Pairings extends React.Component {
@@ -14,23 +13,10 @@ class Pairings extends React.Component {
     }
   }
 
-  componentDidMount() {
-    $.ajax({
-      type: 'GET',
-      url: '/moviedata',
-      contentType: 'application/json',
-      success: (data) => {
-        this.setState({movies: data});
-      },
-      error: (err) => {
-        console.error('Client movie fetch error: ', err);
-      }
-    });
-  }
   render() {
     return(
       <Grid>
-        <PopulatePairings movies={this.state.movies} wines={winesData}/>
+        <PopulatePairings pairings={pairings}/>
       </Grid>
       )
   }
